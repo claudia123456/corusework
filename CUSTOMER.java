@@ -1,33 +1,40 @@
-
-/**
- * Write a description of class CUSTOMER here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class CUSTOMER
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class CUSTOMER
-     */
+  
+    public class CUSTOMER
+    {
+        // lsit of properties
+        private String CustomerID;
+        private char TicketID;
+        private int NumOfTickets;
+        private char method;
+        
     public CUSTOMER()
     {
-        // initialise instance variables
-        x = 0;
+        CustomerID = "";
+        TicketID = 0;
+        NumOfTickets = 0;
+        method = 0;
+        
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    
+    public void readCustomerDetails (String dataItems)
     {
-        // put your code here
-        return x + y;
+        String [] rowItems = dataItems.split(",");
+        CustomerID = rowItems [0];
+        TicketID = (rowItems[1]).charAt(0);
+        NumOfTickets = Integer.parseInt(rowItems[2]);
+        method = (rowItems[3]).charAt(0);
+    }
+    
+    public String writeDeails()
+    {
+        String customerData = "";
+        customerData = customerData.concat(CustomerID);
+        customerData = customerData.concat(",");
+        customerData = customerData.concat(Character.toString(TicketID));
+        customerData = customerData.concat(",");
+        customerData = customerData.concat(Integer.toString(NumOfTickets));
+        customerData =customerData.concat(",");
+        customerData = customerData.concat(Character.toString(method));
+        return customerData;
     }
 }
