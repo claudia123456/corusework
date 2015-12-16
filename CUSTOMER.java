@@ -1,5 +1,4 @@
-  
-    public class CUSTOMER
+      public class CUSTOMER
     {
         // lsit of properties
         private String CustomerID;
