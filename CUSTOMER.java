@@ -41,4 +41,13 @@ public class CUSTOMER
     {
         return method;
     }
+    
+    public char getnight() 
+    {
+        return TicketID;
+    }
+    
+    public int getNumOfTickets() 
+    { return NumOfTickets; 
+    }
 }

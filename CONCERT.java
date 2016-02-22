@@ -3,56 +3,56 @@ import java.io.*;
 import java.time.*;
 public class CONCERT
 {
-   //array of customer objects
-   private CUSTOMER customerList[];
-   // number of customers to be calculated after reading file
-   int NoOfCustomers;
-   FILEREADCSV customerFile;
-   
-   public CONCERT()
-   { 
-       // initialise instance variables
-       customerFile = new FILEREADCSV(); 
-   }
-   
-   public void processCustomer() throws IOException
-   {
-       setUpCustomerList();
-       showyear();
-       countmethod();
-       counttotal();
-       savefridaynightfile();
-   }
-   
-   public void setUpCustomerList() throws IOException
-   {
-       //first user message
-       System.out.println("Concert Sales: Customer Update");
-       System.out.println("** Preparing to read data file");
-       // read file, fetch data as String array containing the rows
-       String[] dataRows = customerFile.readCSVtable();
-       // calculate the number of customer rows with customer details
-       NoOfCustomers = dataRows.length;
-       // ipdate user 
-       System.out.println("**" + NoOfCustomers + " rows read.\n\n");
-       customerList = new CUSTOMER[NoOfCustomers];
-       for (int i = 0; i < NoOfCustomers; i++)
-       {
-           customerList[i] = new CUSTOMER();
-           customerList[i].readCustomerDetails(dataRows[i]);
-       }
-   }
-   
-   public void showyear()
-   {
-       //placeholder
-       System.out.println(Year.now().getValue() + "\n");
-   }
-   
-   public void countmethod()
-   {
-       //placeholder
-       System.out.print("A report of which method was used the most : ");
+    //array of customer objects
+    private CUSTOMER customerList[];
+    // number of customers to be calculated after reading file
+    int NoOfCustomers;
+    FILEREADCSV customerFile;
+
+    public CONCERT()
+    { 
+        // initialise instance variables
+        customerFile = new FILEREADCSV(); 
+    }
+
+    public void processCustomer() throws IOException
+    {
+        setUpCustomerList();
+        showyear();
+        countmethod();
+        counttotal();
+        savefridaynightfile();
+    }
+
+    public void setUpCustomerList() throws IOException
+    {
+        //first user message
+        System.out.println("Concert Sales: Customer Update");
+        System.out.println("** Preparing to read data file");
+        // read file, fetch data as String array containing the rows
+        String[] dataRows = customerFile.readCSVtable();
+        // calculate the number of customer rows with customer details
+        NoOfCustomers = dataRows.length;
+        // ipdate user 
+        System.out.println("**" + NoOfCustomers + " rows read.\n\n");
+        customerList = new CUSTOMER[NoOfCustomers];
+        for (int i = 0; i < NoOfCustomers; i++)
+        {
+            customerList[i] = new CUSTOMER();
+            customerList[i].readCustomerDetails(dataRows[i]);
+        }
+    }
+
+    public void showyear()
+    {
+        //placeholder
+        System.out.println(Year.now().getValue() + "\n");
+    }
+
+    public void countmethod()
+    {
+        //placeholder
+        System.out.print("A report of which method was used the most : ");
         // start the count
         int countS = 0;
         int countW = 0;
@@ -85,15 +85,49 @@ public class CONCERT
         }
         // A blank line to separate this report from others.
         System.out.println();
-   }
-   
-   public void counttotal()
-   {
-       //placeholder
-   }
-   
-   public void savefridaynightfile()
-   {
-       //placeholder
-   }
+    }
+
+    public void counttotal()
+    {
+        // start the count 
+        float total = 0.00f; 
+        for (int i = 0; i < noOfCustomers; i++)
+        { if  (customerList[i].getnight() == 'F')
+            {
+                total = total + customerList[i].getNumOfTickets()*10; 
+            } 
+            else 
+            {
+                total = total + customerList[i].getNumOfTickets()*10;
+            }
+        }
+        System.out.print("total money raised for charity : £" + total );
+    }
+
+    public void savefridaynightfile() throws IOException
+    {
+        // placeholder
+        String fileContent = ""; 
+        int count = 0;
+        for (int i = 0; i < noOfCustomers; i ++) 
+
+        { 
+
+            if (customerList[i].getnight() == 'F' )
+            { 
+                count = count + 1; 
+
+                if (count>1) 
+                { 
+                    fileContent = fileContent.concat("\n"); 
+                } 
+                fileContent = fileContent.concat(customerList[i].writeDetails());
+            }
+        } 
+
+        System.out.println("** Preparing to write friday night file.");
+        resultFile.writeCSVtable(fileContent);
+        System.out.println(" ** File written and closed.**");
+
+    }
 }
