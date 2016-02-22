@@ -8,6 +8,7 @@ public class CONCERT
     // number of customers to be calculated after reading file
     int NoOfCustomers;
     FILEREADCSV customerFile;
+    FILEWRITECSV resultFile;
 
     public CONCERT()
     { 
@@ -91,7 +92,7 @@ public class CONCERT
     {
         // start the count 
         float total = 0.00f; 
-        for (int i = 0; i < noOfCustomers; i++)
+        for (int i = 0; i < NoOfCustomers; i++)
         { if  (customerList[i].getnight() == 'F')
             {
                 total = total + customerList[i].getNumOfTickets()*10; 
@@ -109,7 +110,7 @@ public class CONCERT
         // placeholder
         String fileContent = ""; 
         int count = 0;
-        for (int i = 0; i < noOfCustomers; i ++) 
+        for (int i = 0; i < NoOfCustomers; i ++) 
 
         { 
 

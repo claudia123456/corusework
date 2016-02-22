@@ -5,6 +5,9 @@ public class CUSTOMER
     private char TicketID;
     private int NumOfTickets;
     private char method;
+    public float total;
+    public char getnight;
+    public String SeatSection;
 
     public CUSTOMER()
     {
@@ -24,7 +27,7 @@ public class CUSTOMER
         method = (rowItems[3]).charAt(0);
     }
 
-    public String writeDeails()
+    public String writeDetails()
     {
         String customerData = "";
         customerData = customerData.concat(CustomerID);
