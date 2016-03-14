@@ -14,6 +14,7 @@ public class CONCERT
     { 
         // initialise instance variables
         customerFile = new FILEREADCSV(); 
+        resultFile  = new FILEWRITECSV();
     }
 
     public void processCustomer() throws IOException
