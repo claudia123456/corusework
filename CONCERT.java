@@ -94,7 +94,7 @@ public class CONCERT
         // start the count 
         float total = 0.00f; 
         for (int i = 0; i < NoOfCustomers; i++)
-        { if  (customerList[i].getnight() == 'F')
+        { if  ((customerList[i].getnight().equals ("F1")) || (customerList[i].getnight().equals ("F2")) || (customerList[i].getnight().equals ("F3")))
             {
                 total = total + customerList[i].getNumOfTickets()*10; 
             } 
@@ -115,7 +115,7 @@ public class CONCERT
 
         { 
 
-            if (customerList[i].getnight() == 'F' )
+            if (customerList[i].getnight().equals ("F" ))
             { 
                 count = count + 1; 
 
