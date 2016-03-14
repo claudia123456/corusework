@@ -2,7 +2,7 @@ public class CUSTOMER
 {
     // lsit of properties
     private String CustomerID;
-    private char TicketID;
+    private String TicketID;
     private int NumOfTickets;
     private char method;
     public float total;
@@ -12,7 +12,7 @@ public class CUSTOMER
     public CUSTOMER()
     {
         CustomerID = "";
-        TicketID = 0;
+        TicketID = "";
         NumOfTickets = 0;
         method = 0;
 
@@ -22,7 +22,7 @@ public class CUSTOMER
     {
         String [] rowItems = dataItems.split(",");
         CustomerID = rowItems [0];
-        TicketID = (rowItems[1]).charAt(0);
+        TicketID = (rowItems[1]);
         NumOfTickets = Integer.parseInt(rowItems[2]);
         method = (rowItems[3]).charAt(0);
     }
@@ -32,7 +32,7 @@ public class CUSTOMER
         String customerData = "";
         customerData = customerData.concat(CustomerID);
         customerData = customerData.concat(",");
-        customerData = customerData.concat(Character.toString(TicketID));
+        customerData = customerData.concat(TicketID);
         customerData = customerData.concat(",");
         customerData = customerData.concat(Integer.toString(NumOfTickets));
         customerData =customerData.concat(",");
@@ -45,7 +45,7 @@ public class CUSTOMER
         return method;
     }
     
-    public char getnight() 
+    public String getnight() 
     {
         return TicketID;
     }
