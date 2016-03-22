@@ -115,7 +115,7 @@ public class CONCERT
 
         { 
 
-            if (customerList[i].getnight().equals ("F" ))
+            if ((customerList[i].getnight().equals ("F1")) || (customerList[i].getnight().equals ("F2")) || (customerList[i].getnight().equals ("F3")))
             { 
                 count = count + 1; 
 
