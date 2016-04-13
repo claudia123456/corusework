@@ -1,6 +1,6 @@
 public class CUSTOMER
 {
-    // lsit of properties
+    // list of properties
     private String CustomerID;
     private String TicketID;
     private int NumOfTickets;

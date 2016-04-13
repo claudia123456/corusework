@@ -100,7 +100,7 @@ public class CONCERT
             } 
             else 
             {
-                total = total + customerList[i].getNumOfTickets()*10;
+                total = total + customerList[i].getNumOfTickets()*5;
             }
         }
         System.out.print("total money raised for charity : £" + total );
